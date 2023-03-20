@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import jsondata from "./data.json";
 import image from "./jeetpakki.png";
+import toast, { Toaster } from "react-hot-toast";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -13,7 +14,8 @@ export default function Home() {
   const [data, setData] = useState(jsondata);
 
   const handleLearnClick = () => {
-    const token = "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";
+    toast("Generating Slides");
+    const token = "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";
     const newprompt = `Suppose you are a School Teacher, Explain ${prompt} to your Student
     Explain it with the help of 5 points, Each should not be more than 25-30 words
 
@@ -54,6 +56,7 @@ export default function Home() {
         }
       )
       .then((res) => {
+        toast.success("Slides Generated");
         console.log(res.data);
         const output = res.data.choices[0].text;
 
@@ -69,6 +72,7 @@ export default function Home() {
       })
       .catch((err) => {
         console.log(err);
+        toast.error("OOOps! something went wrong ");
       });
 
     // setData(jsondata);
@@ -76,6 +80,7 @@ export default function Home() {
 
   return (
     <div>
+      <Toaster />
       <div className="navbar">
         <div className="logo">Gyan Wallah</div>
         <div className="nav-links">
