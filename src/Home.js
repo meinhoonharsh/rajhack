@@ -1,37 +1,39 @@
 import React, { useState } from "react";
 import data from "./data.json";
-// Import openai
+import axios from "axios";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [showSlides, setShowSlides] = useState(true);
 
   const handleLearnClick = () => {
-    // when button clicks, call the API of OpenAI
-    // and get the response
-    // const openai = new OpenAI(
-    //   "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"
-    // );
-    // openai
-    //   .complete({
-    //     engine: "davinci",
-    //     prompt: "Jai Shri Ram in Hindi",
-    //     maxTokens: 5,
-    //     temperature: 0.9,
-    //     topP: 1,
-    //     presencePenalty: 0,
-    //     frequencyPenalty: 0,
-    //     bestOf: 1,
-    //     n: 1,
-    //     stream: false,
-    //     stop: ["\n", " Human:", " AI:"],
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    const token = "idhr par token daalna hai";
+    axios
+      .post(
+        "https://api.openai.com/v1/completions",
+
+        {
+          model: "text-davinci-003",
+          prompt: prompt,
+          temperature: 0.7,
+          max_tokens: 256,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     setShowSlides(true);
   };
