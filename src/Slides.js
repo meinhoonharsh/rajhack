@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 
 export default function Slides({ data }) {
+  var images = [];
   console.log("Data from slides.js", data);
   const getImageFromPrompt = async (prompt) => {
     axios
