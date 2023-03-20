@@ -15,17 +15,6 @@ export default function Slides({ data }) {
       .catch((err) => {
         console.log(err);
       });
-
-    // axios
-    //   .get("https://manage.connectup.in/api/posts", {
-    //     page: 3,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
 
   // React.useEffect(() => {
@@ -35,5 +24,28 @@ export default function Slides({ data }) {
   //   images.push(getImageFromPrompt(prompt));
   // });
   // });
-  return "Hello";
+  return (
+    <div className="slides">
+      <Carousel
+        showArrows={true}
+        autoPlay={true}
+        infiniteLoop={false}
+        showThumbs={true}
+        emulateTouch={true}
+      >
+        {data.points.map((item) => {
+          return (
+            <div>
+              <div className="slide layout1">
+                <div className="slide-text">{item}</div>
+                <div className="slide-image">
+                  <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </Carousel>
+    </div>
+  );
 }

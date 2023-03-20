@@ -73,7 +73,13 @@ export default function Home() {
       <div className="navbar">
         <div className="logo">Gyan Wallah</div>
         <div className="nav-links">
-          <a class="button">Github</a>
+          <a
+            href="https://github.com/meinhoonharsh/rajhack/"
+            target="_blank"
+            class="button"
+          >
+            Github
+          </a>
         </div>
       </div>
 
@@ -104,40 +110,7 @@ export default function Home() {
       </div>
 
       {/* Slides */}
-      {showSlides && (
-        <div className="slides">
-          <Carousel
-            showArrows={true}
-            autoPlay={true}
-            infiniteLoop={false}
-            showThumbs={true}
-            emulateTouch={true}
-          >
-            {/* {data?.points?.map((slideText, index) => {
-            <div key={index}>
-              <div className="slide layout1">
-                <div className="slide-text">Jai Shri Ram</div>
-                <div className="slide-image">
-                  <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
-                </div>
-              </div>
-            </div>;
-          })} */}
-            {data.points.map((item) => {
-              return (
-                <div>
-                  <div className="slide layout1">
-                    <div className="slide-text">{item}</div>
-                    <div className="slide-image">
-                      <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </Carousel>
-        </div>
-      )}
+      {showSlides && <Slides data={data} />}
     </div>
   );
 }
