@@ -33,13 +33,13 @@ export default function Slides({ data }) {
       });
   };
 
-  React.useEffect(() => {
-    console.log("Data from slides.js", data);
-    data.prompts_for_images.forEach((prompt) => {
-      console.log(prompt);
-      images.push(getImageFromPrompt(prompt));
-    });
-  });
+  // React.useEffect(() => {
+  //   console.log("Data from slides.js", data);
+  //   data.prompts_for_images.forEach((prompt) => {
+  //     console.log(prompt);
+  //     images.push(getImageFromPrompt(prompt));
+  //   });
+  // });
   return (
     <div className="slides">
       <Carousel
