@@ -48,15 +48,16 @@ export default function Slides({ data }) {
         infiniteLoop={false}
         showThumbs={true}
         emulateTouch={true}
+        showStatus={false}
       >
         {data.points.map((item) => {
           return (
             <div>
               <div className="slide layout1">
                 <div className="slide-text">{item}</div>
-                <div className="slide-image">
+                {/* <div className="slide-image">
                   <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
-                </div>
+                </div> */}
               </div>
             </div>
           );
