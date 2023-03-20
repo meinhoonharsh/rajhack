@@ -38,7 +38,13 @@ export default function Slides({ data }) {
   });
   return (
     <div className="slides">
-      <Carousel>
+      <Carousel
+        showArrows={true}
+        autoPlay={true}
+        infiniteLoop={false}
+        showThumbs={true}
+        emulateTouch={true}
+      >
         <div>
           <div className="slide layout1">
             <div className="slide-text">
