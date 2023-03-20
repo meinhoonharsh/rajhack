@@ -8,32 +8,32 @@ export default function Home() {
 
   const handleLearnClick = () => {
     const token = "idhr par token daalna hai";
-    axios
-      .post(
-        "https://api.openai.com/v1/completions",
+    // axios
+    //   .post(
+    //     "https://api.openai.com/v1/completions",
 
-        {
-          model: "text-davinci-003",
-          prompt: prompt,
-          temperature: 0.7,
-          max_tokens: 256,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    //     {
+    //       model: "text-davinci-003",
+    //       prompt: prompt,
+    //       temperature: 0.7,
+    //       max_tokens: 256,
+    //       top_p: 1,
+    //       frequency_penalty: 0,
+    //       presence_penalty: 0,
+    //     },
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: "Bearer " + token,
+    //       },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
     setShowSlides(true);
   };
