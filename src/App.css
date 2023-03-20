@@ -99,3 +99,41 @@ body {
   cursor: pointer;
   border-radius: 0 35px 35px 0;
 }
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 10%;
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.slide {
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  padding: 3%;
+  aspect-ratio: 16/9;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-text {
+  font-size: 2rem;
+  font-weight: 600;
+  width: 50%;
+}
+.slide-image {
+  width: 50%;
+  /* padding: 5%; */
+}
+.slide-image img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.slide:nth-child(2n) {
+  flex-direction: row-reverse;
+}

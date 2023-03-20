@@ -1,0 +1,16 @@
+{
+  "points": [
+    "An electric motor converts electrical energy into mechanical energy.",
+    "It works on the principle of magnetic force.",
+    "It consists of a rotor and a stator.",
+    "It requires a source of electricity to function.",
+    "It finds application in various industries."
+  ],
+  "prompts_for_images": [
+    "A coil of wire with electric current and a magnet with rotating shaft",
+    "A diagram showing the interaction of magnetic fields and forces",
+    "An illustration of a rotor and stator components",
+    "An electric cable plugged into the motor",
+    "Examples of electric motors in household appliances, cars, and industrial machines."
+  ]
+}
