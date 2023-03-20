@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import jsondata from "./data.json";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 import Slides from "./Slides";
 
 export default function Home() {
+  const array = ["d", "e", "f"];
   const [prompt, setPrompt] = useState("");
   const [showSlides, setShowSlides] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(jsondata);
 
   const handleLearnClick = () => {
     // const token = "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";
@@ -94,7 +98,40 @@ export default function Home() {
       </div>
 
       {/* Slides */}
-      {showSlides && <Slides data={data} />}
+      {showSlides && (
+        <div className="slides">
+          <Carousel
+            showArrows={true}
+            autoPlay={true}
+            infiniteLoop={false}
+            showThumbs={true}
+            emulateTouch={true}
+          >
+            {/* {data?.points?.map((slideText, index) => {
+            <div key={index}>
+              <div className="slide layout1">
+                <div className="slide-text">Jai Shri Ram</div>
+                <div className="slide-image">
+                  <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
+                </div>
+              </div>
+            </div>;
+          })} */}
+            {data.points.map((item) => {
+              return (
+                <div>
+                  <div className="slide layout1">
+                    <div className="slide-text">{item}</div>
+                    <div className="slide-image">
+                      <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </Carousel>
+        </div>
+      )}
     </div>
   );
 }
