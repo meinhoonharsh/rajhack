@@ -114,6 +114,7 @@ body {
   background: #fff;
   border-radius: 15px;
   display: flex;
+  flex-direction: row !important;
   padding: 3%;
   aspect-ratio: 16/9;
   justify-content: center;
@@ -135,5 +136,5 @@ body {
 }
 
 .slide:nth-child(2n) {
-  flex-direction: row-reverse;
+  flex-direction: row-reverse !important;
 }

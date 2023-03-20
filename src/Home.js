@@ -94,7 +94,7 @@ export default function Home() {
       </div>
 
       {/* Slides */}
-      {/* {showSlides && <Slides data={data} />} */}
+      {showSlides && <Slides data={data} />}
     </div>
   );
 }
