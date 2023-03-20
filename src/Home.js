@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import data from "./data.json";
+import jsondata from "./data.json";
 import axios from "axios";
+import Slides from "./Slides";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
-  const [showSlides, setShowSlides] = useState(true);
+  const [showSlides, setShowSlides] = useState(false);
+  const [data, setData] = useState([]);
 
   const handleLearnClick = () => {
-    const token = "idhr par token daalna hai";
+    const token = "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";
+    const newprompt = `
+    `;
     // axios
     //   .post(
     //     "https://api.openai.com/v1/completions",
@@ -29,11 +33,14 @@ export default function Home() {
     //     }
     //   )
     //   .then((res) => {
-    //     console.log(res.data);
+    //     // console.log(res.data);
+    //     const output = res.data.choices[0].text;
+    //     console.log(output);
     //   })
     //   .catch((err) => {
     //     console.log(err);
     //   });
+    setData(jsondata);
 
     setShowSlides(true);
   };
@@ -69,28 +76,7 @@ export default function Home() {
       </div>
 
       {/* Slides */}
-      {showSlides && (
-        <div className="slides">
-          <div className="slide layout1">
-            <div className="slide-text">
-              Image of a computer chip with binary code on the screen to show
-              how computers use binary
-            </div>
-            <div className="slide-image">
-              <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
-            </div>
-          </div>
-          <div className="slide layout1">
-            <div className="slide-text">
-              Image of a computer chip with binary code on the screen to show
-              how computers use binary
-            </div>
-            <div className="slide-image">
-              <img src="https://pub-8b49af329fae499aa563997f5d4068a4.r2.dev/generations/26e83d8b-6c01-4b5b-8cdc-8ab337939830-0.png" />
-            </div>
-          </div>
-        </div>
-      )}
+      {showSlides && <Slides data={data} />}
     </div>
   );
 }
