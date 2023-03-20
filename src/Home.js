@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import jsondata from "./data.json";
 import image from "./jeetpakki.png";
 import toast, { Toaster } from "react-hot-toast";
+import { InfinitySpin } from "react-loader-spinner";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -9,13 +10,16 @@ import axios from "axios";
 import Slides from "./Slides";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [showSlides, setShowSlides] = useState(false);
   const [data, setData] = useState(jsondata);
 
   const handleLearnClick = () => {
+    setIsLoading(true);
+    setShowSlides(false);
     toast("Generating Slides");
-    const token = "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";
+    const token = "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";
     const newprompt = `Suppose you are a School Teacher, Explain ${prompt} to your Student
     Explain it with the help of 5 points, Each should not be more than 25-30 words
 
@@ -69,10 +73,12 @@ export default function Home() {
         const parsed = JSON.parse(trimmed);
         setData(parsed);
         setShowSlides(true);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
         toast.error("OOOps! something went wrong ");
+        setIsLoading(false);
       });
 
     // setData(jsondata);
@@ -103,17 +109,21 @@ export default function Home() {
             </h1>
           </div>
           {/* Input with button */}
-          <div className="input-holder">
-            <input
-              type="text"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Search for a topic"
-            />
-            <button className="search-button" onClick={handleLearnClick}>
-              Get Gyan!
-            </button>
-          </div>
+          {isLoading ? (
+            <InfinitySpin width="200" color="#fff" />
+          ) : (
+            <div className="input-holder">
+              <input
+                type="text"
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
+                placeholder="Search for a topic"
+              />
+              <button className="search-button" onClick={handleLearnClick}>
+                Get Gyan!
+              </button>
+            </div>
+          )}
         </div>
         <div className="hero-right">
           <img src={image} />
