@@ -23,7 +23,7 @@ export default function Slides({ data }) {
         track_id: null,
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

@@ -9,16 +9,33 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   const handleLearnClick = () => {
-    const token = "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";
-    const newprompt = `
-    `;
+    // const token = "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";
+    // const newprompt = `Suppose you are a School Teacher, Explain ${prompt} to your Student
+    // Explain it with the help of 5 points, Each should not be more than 25-30 words
+
+    // Write Image generation prompts for each point, image should not contain any text
+
+    // return your answer in the form
+    // {
+    //   "points":[
+    //      "point one",
+    //      "point two",
+    //      "point three"
+    // ],
+    //   "prompts_for_images":[
+    //      "prompt for point one",
+    //      "prompt for point two",
+    //      "prompt for point three"
+    // ]
+    // }
+    // `;
     // axios
     //   .post(
     //     "https://api.openai.com/v1/completions",
 
     //     {
     //       model: "text-davinci-003",
-    //       prompt: prompt,
+    //       prompt: newprompt,
     //       temperature: 0.7,
     //       max_tokens: 256,
     //       top_p: 1,
@@ -33,13 +50,14 @@ export default function Home() {
     //     }
     //   )
     //   .then((res) => {
-    //     // console.log(res.data);
+    //     console.log(res.data);
     //     const output = res.data.choices[0].text;
     //     console.log(output);
     //   })
     //   .catch((err) => {
     //     console.log(err);
     //   });
+
     setData(jsondata);
 
     setShowSlides(true);
@@ -76,7 +94,7 @@ export default function Home() {
       </div>
 
       {/* Slides */}
-      {showSlides && <Slides data={data} />}
+      {/* {showSlides && <Slides data={data} />} */}
     </div>
   );
 }
