@@ -19,7 +19,7 @@ export default function Home() {
     setIsLoading(true);
     setShowSlides(false);
     toast("Generating Slides");
-    const token = "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";
+    const token = "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";
     const newprompt = `Suppose you are a School Teacher, Explain ${prompt} to your Student
     Explain it with the help of 5 points, Each should not be more than 25-30 words
 
