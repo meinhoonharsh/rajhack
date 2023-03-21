@@ -88,7 +88,7 @@ export default function Home() {
     <div>
       <Toaster />
       <div className="navbar">
-        <div className="logo">Gyan Wallah {process.env.REACT_APP_API_KEY}</div>
+        <div className="logo">Gyan Wallah</div>
         <div className="nav-links">
           <a
             href="https://github.com/meinhoonharsh/rajhack/"
