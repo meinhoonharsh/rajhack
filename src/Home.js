@@ -19,7 +19,7 @@ export default function Home() {
     setIsLoading(true);
     setShowSlides(false);
     toast("Generating Slides");
-    const token = "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";
+    const token = process.env.REACT_APP_API_KEY;
     const newprompt = `Suppose you are a School Teacher, Explain ${prompt} to your Student
     Explain it with the help of 5 points, Each should not be more than 25-30 words
 
@@ -88,7 +88,7 @@ export default function Home() {
     <div>
       <Toaster />
       <div className="navbar">
-        <div className="logo">Gyan Wallah</div>
+        <div className="logo">Gyan Wallah {process.env.REACT_APP_API_KEY}</div>
         <div className="nav-links">
           <a
             href="https://github.com/meinhoonharsh/rajhack/"
